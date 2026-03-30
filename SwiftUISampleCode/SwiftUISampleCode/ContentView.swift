@@ -9,13 +9,22 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        NavigationView {
+            VStack {
+                List {
+                    Section(header: Text("Essentials")) {
+                        EssentialListView()
+                    }
+                    Section(header: Text("Advanced")) {
+                        AppStructureListView()
+                    }
+                    Section(header: Text("View layout")) {
+                        ViewlayoutView()
+                    }
+                }
+            }
+            .navigationBarTitle("SwiftUI Sample Code")
         }
-        .padding()
     }
 }
 
