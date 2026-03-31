@@ -14,6 +14,9 @@ struct LayoutAdjustmentsView: View {
                 NavigationLink(destination: AligningViews()) {
                     MenuRow(detailViewName: "Aligning views across stacks")
                 }
+                NavigationLink(destination: AligningViewWithinStack()) {
+                    MenuRow(detailViewName: "Aligning views within a stack")
+                }
             }
         }
         .navigationBarTitle("Liquid Adjustments")
