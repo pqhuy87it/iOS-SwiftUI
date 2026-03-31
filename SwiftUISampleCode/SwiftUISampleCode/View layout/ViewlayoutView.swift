@@ -1,16 +1,14 @@
-//
-//  ViewlayoutView.swift
-//  SwiftUISampleCode
-//
-//  Created by huy on 2026/03/30.
-//
 
 import SwiftUI
 
 struct ViewlayoutView: View {
     var body: some View {
+        NavigationLink(destination: LayoutFundamentalView()) {
+            MenuRow(detailViewName: "Layout fundamentals")
+        }
+        
         NavigationLink(destination: LayoutAdjustmentsView()) {
-            MenuRow(detailViewName: "Liquid Adjustments")
+            MenuRow(detailViewName: "Layout Adjustments")
         }
         
         NavigationLink(destination: ListView()) {
@@ -19,6 +17,10 @@ struct ViewlayoutView: View {
         
         NavigationLink(destination: CustomLayoutView()) {
             MenuRow(detailViewName: "Custom layout")
+        }
+        
+        NavigationLink(destination: ViewGroupingView()) {
+            MenuRow(detailViewName: "View groupings")
         }
     }
 }

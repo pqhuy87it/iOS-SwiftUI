@@ -19,7 +19,7 @@ struct LayoutAdjustmentsView: View {
                 }
             }
         }
-        .navigationBarTitle("Liquid Adjustments")
+        .navigationBarTitle("Layout Adjustments")
     }
 }
 
