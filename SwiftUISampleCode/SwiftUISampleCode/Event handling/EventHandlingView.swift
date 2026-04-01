@@ -12,6 +12,10 @@ struct EventHandlingView: View {
         NavigationLink(destination: GesturesView()) {
             MenuRow(detailViewName: "Gestures")
         }
+        
+        NavigationLink(destination: InputEventsView()) {
+            MenuRow(detailViewName: "Input events")
+        }
     }
 }
 
