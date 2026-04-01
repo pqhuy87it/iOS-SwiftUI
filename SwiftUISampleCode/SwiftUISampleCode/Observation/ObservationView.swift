@@ -16,6 +16,10 @@ struct ObservationView: View {
         NavigationLink(destination: DataFlowExample()) {
             MenuRow(detailViewName: "Observable2")
         }
+        
+        NavigationLink(destination: ProfileView()) {
+            MenuRow(detailViewName: "Observable3")
+        }
     }
 }
 

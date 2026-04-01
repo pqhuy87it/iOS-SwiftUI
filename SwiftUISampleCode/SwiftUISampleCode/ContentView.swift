@@ -27,6 +27,9 @@ struct ContentView: View {
                     Section(header: Text("Observation")) {
                         ObservationView()
                     }
+                    Section(header: Text("Combine")) {
+                        CombineView()
+                    }
                 }
             }
             .navigationBarTitle("SwiftUI Sample Code")
