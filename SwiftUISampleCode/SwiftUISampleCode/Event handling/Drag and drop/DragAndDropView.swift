@@ -15,6 +15,9 @@ struct DragAndDropView: View {
                     MenuRow(detailViewName: "Drag Drop Interactions")
                 }
                 
+                NavigationLink(destination: DraggableView()) {
+                    MenuRow(detailViewName: "Drag Source")
+                }
             }
         }
         .navigationBarTitle("Drag and drop")
