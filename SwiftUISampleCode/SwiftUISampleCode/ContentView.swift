@@ -24,6 +24,9 @@ struct ContentView: View {
                     Section(header: Text("Event handling")) {
                         EventHandlingView()
                     }
+                    Section(header: Text("Observation")) {
+                        ObservationView()
+                    }
                 }
             }
             .navigationBarTitle("SwiftUI Sample Code")
