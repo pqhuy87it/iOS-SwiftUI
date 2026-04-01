@@ -22,6 +22,10 @@ struct ViewlayoutView: View {
         NavigationLink(destination: ViewGroupingView()) {
             MenuRow(detailViewName: "View groupings")
         }
+        
+        NavigationLink(destination: ScrollViews()) {
+            MenuRow(detailViewName: "Scroll views")
+        }
     }
 }
 
