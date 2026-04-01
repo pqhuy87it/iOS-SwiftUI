@@ -14,6 +14,15 @@ struct GesturesView: View {
                 NavigationLink(destination: GestureModifierView()) {
                     MenuRow(detailViewName: "Gesture modifiers")
                 }
+                
+                NavigationLink(destination: SpatialTapGestureView()) {
+                    MenuRow(detailViewName: "Spatial TapGesture")
+                }
+                
+                NavigationLink(destination: ComposingGesturesView()) {
+                    MenuRow(detailViewName: "Composing SwiftUI gestures")
+                }
+                
             }
         }
         .navigationBarTitle("Gestures")
