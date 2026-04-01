@@ -14,6 +14,10 @@ struct ScrollViews: View {
                 NavigationLink(destination: ScrollViewExample()) {
                     MenuRow(detailViewName: "Scroll View")
                 }
+                
+                NavigationLink(destination: ScrollViewReaderView()) {
+                    MenuRow(detailViewName: "Scroll Reader View")
+                }
             }
         }
         .navigationBarTitle("Scroll Views")
