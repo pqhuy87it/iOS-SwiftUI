@@ -16,6 +16,10 @@ struct EventHandlingView: View {
         NavigationLink(destination: InputEventsView()) {
             MenuRow(detailViewName: "Input events")
         }
+        
+        NavigationLink(destination: DragAndDropView()) {
+            MenuRow(detailViewName: "Drag and drop")
+        }
     }
 }
 
