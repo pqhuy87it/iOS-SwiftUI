@@ -16,6 +16,10 @@ struct CombineView: View {
         NavigationLink(destination: KVOView()) {
             MenuRow(detailViewName: "Key-Value Observing (KVO)")
         }
+        
+        NavigationLink(destination: CombineAsyncView()) {
+            MenuRow(detailViewName: "Using Combine for Asynchronous Code")
+        }
     }
 }
 
