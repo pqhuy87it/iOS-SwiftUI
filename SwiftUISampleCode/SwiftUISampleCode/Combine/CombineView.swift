@@ -9,6 +9,10 @@ import SwiftUI
 
 struct CombineView: View {
     var body: some View {
+        NavigationLink(destination: CombineGuideView()) {
+            MenuRow(detailViewName: "Combine Guide")
+        }
+        
         NavigationLink(destination: StateObservedObjectView()) {
             MenuRow(detailViewName: "@StateObject & @ObservedObject")
         }
