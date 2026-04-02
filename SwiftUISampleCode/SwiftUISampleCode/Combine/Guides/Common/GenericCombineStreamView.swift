@@ -56,7 +56,7 @@ struct GenericCombineStreamView: View {
     }
     
     func invervalValuePublisher() -> AnyPublisher<String, Never> {
-        let publishers = (1...5).map { String($0) }
+        let publishers = (1...9).map { String($0) }
             .map { Just($0).delay(for: .seconds(1), scheduler: DispatchQueue.main).eraseToAnyPublisher() }
         return publishers[1...].reduce(publishers[0]) {
             Publishers.Concatenate(prefix: $0, suffix: $1).eraseToAnyPublisher()
