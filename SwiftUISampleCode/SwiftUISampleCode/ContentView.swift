@@ -30,6 +30,9 @@ struct ContentView: View {
                     Section(header: Text("Combine")) {
                         CombineView()
                     }
+                    Section(header: Text("Framework integration")) {
+                        FrameworkIntegrationView()
+                    }
                 }
             }
             .navigationBarTitle("SwiftUI Sample Code")
