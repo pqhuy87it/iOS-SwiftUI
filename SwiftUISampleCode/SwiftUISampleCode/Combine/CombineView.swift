@@ -12,6 +12,10 @@ struct CombineView: View {
         NavigationLink(destination: StateObservedObjectView()) {
             MenuRow(detailViewName: "@StateObject & @ObservedObject")
         }
+        
+        NavigationLink(destination: KVOView()) {
+            MenuRow(detailViewName: "Key-Value Observing (KVO)")
+        }
     }
 }
 
