@@ -20,6 +20,10 @@ struct CombineOperatorsView: View {
                 NavigationLink(destination: MathematicElementsView()) {
                     MenuRow(detailViewName: "Mathematic operations on elements")
                 }
+                
+                NavigationLink(destination: MatchingCriteriaElementsView()) {
+                    MenuRow(detailViewName: "Applying matching criteria to elements")
+                }
             }
         }
         .navigationBarTitle("Operators")
