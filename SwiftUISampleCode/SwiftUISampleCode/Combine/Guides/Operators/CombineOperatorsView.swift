@@ -12,6 +12,14 @@ struct CombineOperatorsView: View {
                 NavigationLink(destination: FilteringElementsView()) {
                     MenuRow(detailViewName: "Filtering elements")
                 }
+                
+                NavigationLink(destination: ReducingElementsView()) {
+                    MenuRow(detailViewName: "Reducing elements")
+                }
+                
+                NavigationLink(destination: MathematicElementsView()) {
+                    MenuRow(detailViewName: "Mathematic operations on elements")
+                }
             }
         }
         .navigationBarTitle("Operators")
