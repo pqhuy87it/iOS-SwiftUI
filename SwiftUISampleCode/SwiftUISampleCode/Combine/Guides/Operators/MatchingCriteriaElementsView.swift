@@ -5,7 +5,7 @@ struct MatchingCriteriaElementsView: View {
     var body: some View {
         VStack {
             List {
-                // 1. NavigationLink cho allSatisfy
+                // 1. allSatisfy
                 NavigationLink(
                     destination: GenericCombineStreamView(
                         navigationBarTitle: "AllSatisfy",
@@ -19,7 +19,7 @@ struct MatchingCriteriaElementsView: View {
                     }
                 }
                 
-                // 2. NavigationLink cho tryAllSatisfy
+                // 2. tryAllSatisfy
                 NavigationLink(
                     destination: GenericCombineStreamView(
                         navigationBarTitle: "TryAllSatisfy",
@@ -30,6 +30,48 @@ struct MatchingCriteriaElementsView: View {
                     VStack(alignment: .leading) {
                         Text("TryAllSatisfy").font(.headline)
                         Text("Kiểm tra điều kiện nhưng có quyền ném lỗi").font(.caption).foregroundColor(.gray)
+                    }
+                }
+                
+                // 3. contains
+                NavigationLink(
+                    destination: GenericCombineStreamView(
+                        navigationBarTitle: "Contains",
+                        description: ".contains(\"3\")",
+                        comparingPublisher: self.containsPublisher
+                    )
+                ) {
+                    VStack(alignment: .leading) {
+                        Text("Contains").font(.headline)
+                        Text("Tìm kiếm 1 giá trị cụ thể (Ngắt mạch khi thấy)").font(.caption).foregroundColor(.gray)
+                    }
+                }
+                
+                // 4. contains(where:)
+                NavigationLink(
+                    destination: GenericCombineStreamView(
+                        navigationBarTitle: "ContainsWhere",
+                        description: ".contains(where: { $0 > 3 })",
+                        comparingPublisher: self.containsWherePublisher
+                    )
+                ) {
+                    VStack(alignment: .leading) {
+                        Text("ContainsWhere").font(.headline)
+                        Text("Tìm kiếm theo điều kiện (Ngắt mạch khi thấy)").font(.caption).foregroundColor(.gray)
+                    }
+                }
+                
+                // 5. tryContains(where:)
+                NavigationLink(
+                    destination: GenericCombineStreamView(
+                        navigationBarTitle: "TryContainsWhere",
+                        description: ".tryContains(where: { ném lỗi nếu là 4 })",
+                        comparingPublisher: self.tryContainsWherePublisher
+                    )
+                ) {
+                    VStack(alignment: .leading) {
+                        Text("TryContainsWhere").font(.headline)
+                        Text("Tìm theo điều kiện, có quyền ném lỗi").font(.caption).foregroundColor(.gray)
                     }
                 }
             }
@@ -70,6 +112,50 @@ struct MatchingCriteriaElementsView: View {
             }
             .map { $0 ? "Đúng" : "Sai" }
             .catch { _ in Just("Lỗi") } // Hứng lỗi và in ra UI
+            .eraseToAnyPublisher()
+    }
+    
+    // MARK: - 3. Hàm Contains
+    func containsPublisher(publisher: AnyPublisher<String, Never>) -> AnyPublisher<String, Never> {
+        publisher
+        // Chỉ đơn giản là kiểm tra xem trong luồng có xuất hiện chuỗi "3" hay không?
+            .contains("3")
+        // Trả về Bool, ta map sang String để hiện UI
+            .map { $0 ? "Có" : "Không" }
+            .eraseToAnyPublisher()
+    }
+    
+    // MARK: - 4. Hàm ContainsWhere
+    func containsWherePublisher(publisher: AnyPublisher<String, Never>) -> AnyPublisher<String, Never> {
+        publisher
+            .map { Int($0) ?? 0 }
+        // Kiểm tra xem có phần tử nào LỚN HƠN 3 không?
+            .contains(where: { value in
+                value > 3
+            })
+            .map { $0 ? "Có" : "Không" }
+            .eraseToAnyPublisher()
+    }
+    
+    // MARK: - 5. Hàm TryContainsWhere
+    enum ContainsError: Error {
+        case fatalValue
+    }
+    
+    func tryContainsWherePublisher(publisher: AnyPublisher<String, Never>) -> AnyPublisher<String, Never> {
+        publisher
+            .map { Int($0) ?? 0 }
+            .tryContains(where: { value -> Bool in
+                // 1. Nếu vô tình quét trúng số 4 -> CHỦ ĐỘNG NÉM LỖI
+                if value == 4 {
+                    throw ContainsError.fatalValue
+                }
+                
+                // 2. Mục tiêu ta đang tìm kiếm là số 5
+                return value == 5
+            })
+            .map { $0 ? "Có" : "Không" }
+            .catch { _ in Just("Lỗi") } // Bắt lỗi hiện lên UI
             .eraseToAnyPublisher()
     }
 }
