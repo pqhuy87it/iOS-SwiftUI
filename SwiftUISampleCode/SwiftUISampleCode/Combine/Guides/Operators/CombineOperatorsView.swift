@@ -24,6 +24,10 @@ struct CombineOperatorsView: View {
                 NavigationLink(destination: MatchingCriteriaElementsView()) {
                     MenuRow(detailViewName: "Applying matching criteria to elements")
                 }
+                
+                NavigationLink(destination: CombiningElementsMultiplePublishersView()) {
+                    MenuRow(detailViewName: "Combining elements from multiple publishers")
+                }
             }
         }
         .navigationBarTitle("Operators")
