@@ -25,6 +25,10 @@ struct CombineOperatorsView: View {
                     MenuRow(detailViewName: "Applying matching criteria to elements")
                 }
                 
+                NavigationLink(destination: SequenceOperationsElementsView()) {
+                    MenuRow(detailViewName: "Applying sequence operations to elements")
+                }
+                
                 NavigationLink(destination: CombiningElementsMultiplePublishersView()) {
                     MenuRow(detailViewName: "Combining elements from multiple publishers")
                 }
