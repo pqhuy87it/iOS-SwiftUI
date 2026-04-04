@@ -30,7 +30,23 @@ struct CombineOperatorsView: View {
                 }
                 
                 NavigationLink(destination: CombiningElementsMultiplePublishersView()) {
-                    MenuRow(detailViewName: "Combining elements from multiple publishers")
+                    MenuRow(detailViewName: "Combining elements from multiple publishers").font(Font.system(size: 15))
+                }
+                
+                NavigationLink(destination: CombiningElementsMultiplePublishersView()) {
+                    MenuRow(detailViewName: "Handling errors")
+                }
+                
+                NavigationLink(destination: AdaptingPublisherTypesView()) {
+                    MenuRow(detailViewName: "Adapting publisher types")
+                }
+                
+                NavigationLink(destination: EncodingAndDecodingView()) {
+                    MenuRow(detailViewName: "Encoding and decoding")
+                }
+                
+                NavigationLink(destination: EncodingAndDecodingView()) {
+                    MenuRow(detailViewName: "Others")
                 }
             }
         }
