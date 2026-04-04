@@ -41,6 +41,10 @@ struct CombineOperatorsView: View {
                     MenuRow(detailViewName: "Adapting publisher types")
                 }
                 
+                NavigationLink(destination: ControllingTimingView()) {
+                    MenuRow(detailViewName: "Controlling timing")
+                }
+                
                 NavigationLink(destination: EncodingAndDecodingView()) {
                     MenuRow(detailViewName: "Encoding and decoding")
                 }
