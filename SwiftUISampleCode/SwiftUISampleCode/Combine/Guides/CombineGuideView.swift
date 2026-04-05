@@ -11,11 +11,12 @@ struct CombineGuideView: View {
     var body: some View {
         VStack {
             List {
-//                Section(header: Text("Operators")) {
-//                    CombineOperatorsView()
-//                }
                 NavigationLink(destination: CombineOperatorsView()) {
                     MenuRow(detailViewName: "Operators")
+                }
+                
+                NavigationLink(destination: ObservableObjectView()) {
+                    MenuRow(detailViewName: "ObservableObject")
                 }
             }
         }

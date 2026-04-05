@@ -48,18 +48,18 @@ struct OthersView: View {
                 }
                 
                 // 4. multicast
-                NavigationLink(
-                    destination: GenericCombineStreamView(
-                        navigationBarTitle: "Multicast",
-                        description: ".multicast(subject: PassthroughSubject())",
-                        comparingPublisher: self.multicastPublisher
-                    )
-                ) {
-                    VStack(alignment: .leading) {
-                        Text("Multicast").font(.headline)
-                        Text("Chia sẻ luồng cho nhiều người nhận").font(.caption).foregroundColor(.gray)
-                    }
-                }
+//                NavigationLink(
+//                    destination: GenericCombineStreamView(
+//                        navigationBarTitle: "Multicast",
+//                        description: ".multicast(subject: PassthroughSubject())",
+//                        comparingPublisher: self.multicastPublisher
+//                    )
+//                ) {
+//                    VStack(alignment: .leading) {
+//                        Text("Multicast").font(.headline)
+//                        Text("Chia sẻ luồng cho nhiều người nhận").font(.caption).foregroundColor(.gray)
+//                    }
+//                }
             }
         }
         .navigationBarTitle("Others")
@@ -98,20 +98,20 @@ struct OthersView: View {
     }
     
     // MARK: - 4. Hàm Multicast
-    func multicastPublisher(publisher: AnyPublisher<String, Never>) -> AnyPublisher<String, Never> {
-        // Tạo một Subject để làm trung gian chia sẻ
-        let subject = PassthroughSubject<String, Never>()
-        
-        let multicasted = publisher
-            .handleEvents(receiveOutput: { print("Thực hiện tác vụ nặng cho số \($0)") })
-            .multicast(subject: { subject })
-        
-        // 💡 Multicast là ConnectablePublisher, nó chỉ chạy khi ta gọi .connect()
-        // Ở đây ta dùng autoconnect() để nó tự chạy khi có người đăng ký đầu tiên
-        return multicasted
-            .autoconnect()
-            .eraseToAnyPublisher()
-    }
+//    func multicastPublisher(publisher: AnyPublisher<String, Never>) -> AnyPublisher<String, Never> {
+//        // Tạo một Subject để làm trung gian chia sẻ
+//        let subject = PassthroughSubject<String, Never>()
+//        
+//        let multicasted = publisher
+//            .handleEvents(receiveOutput: { print("Thực hiện tác vụ nặng cho số \($0)") })
+//            .multicast(subject: { subject })
+//        
+//        // 💡 Multicast là ConnectablePublisher, nó chỉ chạy khi ta gọi .connect()
+//        // Ở đây ta dùng autoconnect() để nó tự chạy khi có người đăng ký đầu tiên
+//        return multicasted
+//            .autoconnect()
+//            .eraseToAnyPublisher()
+//    }
 }
 
 #Preview {
