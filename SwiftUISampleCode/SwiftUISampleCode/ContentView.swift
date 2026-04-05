@@ -33,6 +33,9 @@ struct ContentView: View {
                     Section(header: Text("Framework integration")) {
                         FrameworkIntegrationView()
                     }
+                    Section(header: Text("Examples")) {
+                        ExamplesView()
+                    }
                 }
             }
             .navigationBarTitle("SwiftUI Sample Code")
