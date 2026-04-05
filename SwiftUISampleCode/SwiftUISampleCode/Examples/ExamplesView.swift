@@ -12,6 +12,10 @@ struct ExamplesView: View {
         NavigationLink(destination: Example1View()) {
             MenuRow(detailViewName: "Login View")
         }
+        
+        NavigationLink(destination: SearchGithubUserView()) {
+            MenuRow(detailViewName: "Search Github User")
+        }
     }
 }
 
