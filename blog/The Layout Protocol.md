@@ -143,3 +143,171 @@ struct ContentView: View {
 ```
 
 *Ghi chú thêm: Trong bài viết, tác giả cũng úp mở rằng phần này mới chỉ hoàn thiện về mặt "sắp xếp vị trí". Ở "Part 2", tác giả sẽ xử lý bài toán "đề xuất kích thước" (proposal) để các dòng Text có thể bị cắt ngắn (truncate - thêm dấu ba chấm `...`) trong trường hợp tổng chiều rộng của màn hình bị thu hẹp lại.*
+
+----
+
+Hoàn toàn được! Đây chính là vẻ đẹp của việc hiểu bản chất vấn đề. 
+
+Ở Part 1, lỗi tràn viền (overflow) xảy ra là do Layout của chúng ta đang hoạt động theo kiểu "đem con bỏ chợ". Nó nhận một **kích thước đề xuất (proposal)** từ View cha (ví dụ: 200px), và nó truyền y nguyên 200px đó cho Label 1, rồi lại truyền y nguyên 200px đó cho Label 2. Kết quả là mỗi Label tự tin chiếm không gian, cộng lại thành 300px -> Tràn viền!
+
+### 💡 Thuật toán giải quyết (Bản chất của Part 2)
+
+Để bắt các Text bị cắt ngắn (`...`), Custom Layout của chúng ta phải đóng vai trò là "người chia lô đất":
+1. **Hỏi nhu cầu thực tế:** Xin kích thước lý tưởng (ideal size) của 2 Label bằng cách truyền `.unspecified` (không giới hạn).
+2. **Kiểm tra quỹ đất:** So sánh tổng nhu cầu với độ rộng thực tế (`proposal.width`).
+3. **Phân lô ép buộc:** Nếu tổng nhu cầu lớn hơn quỹ đất, Layout phải chủ động cắt giảm. Chẳng hạn, chia đôi quỹ đất cho mỗi Label, hoặc Label nào ngắn thì giữ nguyên, Label dài phải chịu thiệt.
+4. **Bắt buộc trên UI:** Các `Text` phải được gắn modifier `.lineLimit(1)` để SwiftUI biết rằng khi bị ép `width`, nó phải hiện dấu `...` thay vì rớt xuống dòng.
+
+---
+
+### 💻 Đoạn code hoàn chỉnh xử lý Truncate
+
+Dưới đây là đoạn code đã được mình nâng cấp thuật toán chia `width` bên trong `computeFrames`. Bạn copy và chạy thử sẽ thấy phép màu xảy ra khi kéo Slider:
+
+```swift
+import SwiftUI
+
+// Mở rộng CGRect (Giữ nguyên từ Part 1)
+extension CGRect {
+    var maxX: CGFloat {
+        get { minX + width }
+        set { origin.x = newValue - width }
+    }
+}
+
+// Custom Layout đã được nâng cấp xử lý Truncate
+struct BarLayout: Layout {
+    
+    func computeFrames(at startingPoint: CGPoint, proposal: ProposedViewSize, subviews: Subviews) -> [CGRect] {
+        assert(subviews.count == 3, "BarLayout yêu cầu phải có đúng 3 subviews")
+        
+        // 1. Lấy "quỹ đất" thực tế từ View cha
+        // Nếu không có, mặc định cho một số rất lớn
+        let availableWidth = proposal.width ?? 10000 
+        
+        // 2. Hỏi "nhu cầu thực tế" (Ideal Size) của 2 Label bằng .unspecified
+        let idealSize1 = subviews[0].sizeThatFits(.unspecified)
+        let idealSize2 = subviews[1].sizeThatFits(.unspecified)
+        
+        var allocatedWidth1 = idealSize1.width
+        var allocatedWidth2 = idealSize2.width
+        
+        // 3. LOGIC XỬ LÝ TRUNCATE (PHÂN LÔ ĐẤT)
+        // Nếu nhu cầu vượt quá quỹ đất, ta phải ép kích thước lại
+        if allocatedWidth1 + allocatedWidth2 > availableWidth {
+            let halfWidth = availableWidth / 2
+            
+            // Nếu Label 1 rất ngắn, cho nó giữ nguyên, Label 2 chịu phần còn lại
+            if allocatedWidth1 < halfWidth {
+                allocatedWidth2 = availableWidth - allocatedWidth1
+            } 
+            // Nếu Label 2 rất ngắn, cho nó giữ nguyên, Label 1 chịu phần còn lại
+            else if allocatedWidth2 < halfWidth {
+                allocatedWidth1 = availableWidth - allocatedWidth2
+            } 
+            // Cả 2 đều dài -> Chia đôi quỹ đất
+            else {
+                allocatedWidth1 = halfWidth
+                allocatedWidth2 = halfWidth
+            }
+        }
+        
+        // 4. Bắt các subviews phải tính toán lại kích thước dựa trên "đất đã chia"
+        let proposal1 = ProposedViewSize(width: allocatedWidth1, height: proposal.height)
+        let proposal2 = ProposedViewSize(width: allocatedWidth2, height: proposal.height)
+        
+        let finalSize1 = subviews[0].sizeThatFits(proposal1)
+        let finalSize2 = subviews[1].sizeThatFits(proposal2)
+        let barSize = subviews[2].sizeThatFits(proposal) // Thanh bar tự lo liệu theo width của nó
+        
+        // 5. Tính toán tọa độ (Giữ nguyên logic Part 1)
+        var currentPoint = startingPoint
+        let label1Frame = CGRect(origin: currentPoint, size: finalSize1)
+        
+        currentPoint.x += finalSize1.width
+        var label2Frame = CGRect(origin: currentPoint, size: finalSize2)
+        
+        currentPoint.x = startingPoint.x
+        currentPoint.y = max(label1Frame.maxY, label2Frame.maxY)
+        let barFrame = CGRect(origin: currentPoint, size: barSize)
+        
+        // Căn lề phải cho Label 2 theo thanh Bar (nếu thanh Bar dài hơn)
+        label2Frame.maxX = max(barFrame.maxX, label2Frame.maxX)
+        
+        return [label1Frame, label2Frame, barFrame]
+    }
+
+    func sizeThatFits(proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) -> CGSize {
+        let frames = computeFrames(at: .zero, proposal: proposal, subviews: subviews)
+        return frames.reduce(CGRect.null) { $0.union($1) }.size
+    }
+
+    func placeSubviews(in bounds: CGRect, proposal: ProposedViewSize, subviews: Subviews, cache: inout ()) {
+        let frames = computeFrames(at: bounds.origin, proposal: proposal, subviews: subviews)
+        for (view, frame) in zip(subviews, frames) {
+            // 👉 ĐÃ SỬA TẠI ĐÂY: Truyền đúng kích thước frame vào proposal 
+            // để bắt buộc Text phải cắt chữ (...) thay vì vẽ tràn ra ngoài
+            view.place(at: frame.origin, proposal: ProposedViewSize(frame.size))
+        }
+    }
+}
+
+// Giao diện Demo
+struct ContentView: View {
+    @State private var containerWidth: CGFloat = 300
+    @State private var barWidth: CGFloat = 200
+    
+    var body: some View {
+        VStack(spacing: 50) {
+            Text("Thử thách Layout - Part 2")
+                .font(.title2).bold()
+            
+            BarLayout {
+                // ĐIỀU KIỆN BẮT BUỘC ĐỂ CÓ DẤU "...": Phải dùng .lineLimit(1)
+                Text("Đoạn Text Bên Trái Rất Dài")
+                    .lineLimit(1)
+                    .background(Color.green.opacity(0.3))
+                
+                Text("Đoạn Text Bên Phải Cũng Dài")
+                    .lineLimit(1)
+                    .background(Color.yellow.opacity(0.3))
+                
+                Color.red
+                    .frame(height: 8)
+                    .frame(width: barWidth)
+            }
+            .border(Color.blue, width: 2)
+            .frame(width: containerWidth)
+            
+            VStack(spacing: 20) {
+                VStack(alignment: .leading) {
+                    Text("Độ rộng thanh Bar: \(Int(barWidth))")
+                    Slider(value: $barWidth, in: 0...350)
+                }
+                
+                VStack(alignment: .leading) {
+                    Text("Độ rộng Container tổng: \(Int(containerWidth))")
+                    Slider(value: $containerWidth, in: 50...350) // Kéo cái này xuống để test Truncate!
+                }
+            }
+            .padding()
+            .background(Color.gray.opacity(0.1))
+            .cornerRadius(12)
+            .padding(.horizontal)
+            
+            Spacer()
+        }
+        .padding(.top)
+    }
+}
+
+#Preview {
+    ContentView()
+}
+```
+
+### 🧠 Tóm tắt những thay đổi mấu chốt so với Part 1:
+1. **Dùng `.unspecified`**: Bằng cách gọi `sizeThatFits(.unspecified)`, Layout "lén lút" hỏi xem nếu không bị ép buộc, 2 text kia sẽ tốn bao nhiêu diện tích.
+2. **Logic Phân chia (Chia đất)**: Ở Bước 3 trong `computeFrames`, nếu tổng 2 text lớn hơn container, mình dùng hàm `if-else` để linh hoạt cắt xén. Đứa nào ngắn thì tha cho nó, đứa nào dài quá thì bị cắt, nếu cả 2 đều dài thì chia đôi màn hình mỗi đứa 50%.
+3. **Cập nhật lại `ProposedViewSize`**: Sau khi đã tính xong `allocatedWidth`, ta bắt buộc phải gọi lại `sizeThatFits` một lần nữa, nhưng lần này truyền vào cục `ProposedViewSize` mới (bị giới hạn width). Lúc này SwiftUI mới kích hoạt cơ chế thêm dấu `...`.
+4. Bắt buộc có `.lineLimit(1)` ngoài giao diện đối với các `Text`.
