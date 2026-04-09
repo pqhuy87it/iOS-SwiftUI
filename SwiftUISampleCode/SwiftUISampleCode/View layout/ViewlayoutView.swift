@@ -30,6 +30,10 @@ struct ViewlayoutView: View {
         NavigationLink(destination: TablesView()) {
             MenuRow(detailViewName: "Tables")
         }
+        
+        NavigationLink(destination: TabViews()) {
+            MenuRow(detailViewName: "TabView")
+        }
     }
 }
 

@@ -22,6 +22,10 @@ struct ComposingCustomLayoutView: View {
                 NavigationLink(destination: RadialLayoutExampleView()) {
                     MenuRow(detailViewName: "MyRadialLayout layout")
                 }
+                
+                NavigationLink(destination: FlowLayoutView()) {
+                    MenuRow(detailViewName: "FlowLayout")
+                }
             }
         }
         .navigationBarTitle("Composing layouts")
