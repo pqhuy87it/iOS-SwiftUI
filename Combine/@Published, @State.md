@@ -3,21 +3,21 @@
 ## 1. Bức tranh tổng thể — Hai thế giới State
 
 ```
-┌─────────────────────────────────────────────────────────────┐
+┌──────────────────────────────────────────────────────────────┐
 │                    SwiftUI State System                      │
 │                                                              │
 │   TRONG View (struct)              NGOÀI View (class)        │
 │   ───────────────────              ──────────────────        │
 │   @State                           @Published                │
-│   - Value type (Int, String...)    - Property của class       │
-│   - SwiftUI sở hữu & quản lý     - Combine publisher        │
+│   - Value type (Int, String...)    - Property của class      │
+│   - SwiftUI sở hữu & quản lý     - Combine publisher         │
 │   - Private, local                - Kết hợp ObservableObject │
 │   - Sống cùng view identity       - Nhiều view observe được  │
 │                                                              │
 │   struct CounterView: View {       class ViewModel: OO {     │
 │     @State var count = 0             @Published var count = 0│
 │   }                                }                         │
-└─────────────────────────────────────────────────────────────┘
+└──────────────────────────────────────────────────────────────┘
 ```
 
 ---
@@ -62,10 +62,10 @@ Vấn đề: View là `struct` → immutable. Không thể mutate property trự
 
 ```
 struct CounterView          SwiftUI Internal Storage
-┌──────────────────┐       ┌──────────────────────┐
+┌──────────────────┐       ┌───────────────────────┐
 │ @State var count ─────── │ count = 0             │
 │                  │       │ (managed by SwiftUI)  │
-│ body {           │       └──────────────────────┘
+│ body {           │       └───────────────────────┘
 │   count += 1 ────────── mutate storage, không mutate struct
 │ }                │
 └──────────────────┘
@@ -124,14 +124,14 @@ struct ChildView: View {
 
 ```
 @State var name                  ChildView
-┌─────────────────┐            ┌──────────────────┐
+┌──────────────────┐           ┌───────────────────┐
 │ wrappedValue:    │◄──────────│ @Binding var name │
-│   get → "Huy"   │  Binding   │   get → đọc State│
-│   set → update   │◄──────────│   set → ghi State│
-│                  │            │                  │
-│ projectedValue:  │            └──────────────────┘
+│   get → "Huy"    │  Binding  │   get → đọc State │
+│   set → update   │◄──────────│   set → ghi State │
+│                  │           │                   │
+│ projectedValue:  │           └───────────────────┘
 │   $name (Binding)│
-└─────────────────┘
+└──────────────────┘
 ```
 
 ### @State dùng cho kiểu dữ liệu nào?
