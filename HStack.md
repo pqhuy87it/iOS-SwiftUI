@@ -1,3 +1,4 @@
+```
 // ============================================================
 // HSTACK TRONG SWIFTUI — GIẢI THÍCH CHI TIẾT
 // ============================================================
@@ -1034,6 +1035,7 @@ struct GeometryAdaptiveDemo: View {
 // 8. .fixedSize() cho text KHÔNG BAO GIỜ được truncate
 // 9. Minimum tap target: .frame(minWidth: 44, minHeight: 44)
 // 10. Test RTL layout: .environment(\.layoutDirection, .rightToLeft)
+```
 
 ---
 
