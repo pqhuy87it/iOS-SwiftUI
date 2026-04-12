@@ -16,6 +16,10 @@ struct BasicView: View {
         NavigationLink(destination: VStackExampleView()) {
             MenuRow(detailViewName: "VStack")
         }
+        
+        NavigationLink(destination: ButtonExampleView()) {
+            MenuRow(detailViewName: "Button")
+        }
     }
 }
 
