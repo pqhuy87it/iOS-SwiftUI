@@ -1066,7 +1066,7 @@ struct ErrorBoundary<Content: View>: View {
     }
 }
 ```
-
+```
 // ╔══════════════════════════════════════════════════════════╗
 // ║  12. PERFORMANCE & RENDER BEHAVIOR                       ║
 // ╚══════════════════════════════════════════════════════════╝
@@ -1157,7 +1157,7 @@ struct ErrorBoundary<Content: View>: View {
 // 8. @ViewBuilder cho reusable container components
 // 9. spacing: 0 + manual padding khi cần pixel-perfect control
 // 10. Test với Dynamic Type lớn — layout có thể vỡ bất ngờ
-
+```
 ---
 
 VStack chia sẻ nhiều concepts với HStack nhưng có những khác biệt quan trọng về alignment (ngang thay vì dọc), và đặc biệt là các production patterns hoàn toàn khác. Mình sẽ giải thích toàn bộ, đi sâu vào những phần riêng biệt của VStack.Mình đã tổng hợp toàn bộ kiến thức VStack trong 13 phần. Đây là những điểm cốt lõi:
