@@ -992,6 +992,7 @@ struct AccessibleImageDemo: View {
 }
 ```
 
+```
 // ╔══════════════════════════════════════════════════════════╗
 // ║  12. PERFORMANCE & BEST PRACTICES                        ║
 // ╚══════════════════════════════════════════════════════════╝
@@ -1060,3 +1061,4 @@ struct AccessibleImageDemo: View {
 // 8. .accessibilityLabel cho meaningful images + icon buttons
 // 9. .monospacedDigit() KHÔNG liên quan Image (chỉ Text)
 // 10. Test ảnh lớn trên device thật — Simulator không thể hiện memory issues
+```
