@@ -20,6 +20,10 @@ struct BasicView: View {
         NavigationLink(destination: ButtonExampleView()) {
             MenuRow(detailViewName: "Button")
         }
+        
+        NavigationLink(destination: TextExampleView()) {
+            MenuRow(detailViewName: "Text")
+        }
     }
 }
 
