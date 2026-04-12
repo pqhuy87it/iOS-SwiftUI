@@ -1178,6 +1178,7 @@ struct AccessibleButtonDemo: View {
 }
 ```
 
+```
 // ╔══════════════════════════════════════════════════════════╗
 // ║  15. COMMON PITFALLS & BEST PRACTICES                    ║
 // ╚══════════════════════════════════════════════════════════╝
@@ -1228,7 +1229,7 @@ struct AccessibleButtonDemo: View {
 // 10. Minimum 44x44pt tap target — Apple HIG requirement
 // 11. confirmationDialog cho destructive actions (không xoá thẳng)
 // 12. .buttonStyle(.borderless) khi nhiều buttons trong List row
-
+```
 --- 
 
 Button là component dùng nhiều nhất trong SwiftUI nhưng hệ thống ButtonStyle và các patterns nâng cao rất phong phú. Mình sẽ giải thích toàn bộ.Mình đã tổng hợp toàn bộ kiến thức Button trong 15 phần. Đây là những điểm cốt lõi:
