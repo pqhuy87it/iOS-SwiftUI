@@ -40,32 +40,30 @@ struct DataFlowExample: View {
     @State private var toggleState = false // Biến này dùng để test việc re-render View cha
     
     var body: some View {
-        NavigationStack {
-            VStack(spacing: 30) {
-                // Khối Hiển thị
-                DisplayView(dataSource: dataSource)
-                
-                // Khối Chỉnh sửa
-                ModificationView(dataSource: dataSource)
-                
-                Divider()
-                
-                // Nút này để test cạm bẫy vòng đời:
-                // Khi bấm, toggleState đổi -> View Cha vẽ lại.
-                // Nhờ dùng @StateObject, dataSource sẽ KHÔNG bị reset.
-                // (Nếu bạn đổi @StateObject ở trên thành @ObservedObject, bạn sẽ thấy DataSource bị reset liên tục)
-                Button(action: {
-                    toggleState.toggle()
-                }) {
-                    Text("Re-render View Cha (Trạng thái: \(toggleState ? "ON" : "OFF"))")
-                        .padding()
-                        .background(Color.purple.opacity(0.2))
-                        .cornerRadius(8)
-                }
+        VStack(spacing: 30) {
+            // Khối Hiển thị
+            DisplayView(dataSource: dataSource)
+            
+            // Khối Chỉnh sửa
+            ModificationView(dataSource: dataSource)
+            
+            Divider()
+            
+            // Nút này để test cạm bẫy vòng đời:
+            // Khi bấm, toggleState đổi -> View Cha vẽ lại.
+            // Nhờ dùng @StateObject, dataSource sẽ KHÔNG bị reset.
+            // (Nếu bạn đổi @StateObject ở trên thành @ObservedObject, bạn sẽ thấy DataSource bị reset liên tục)
+            Button(action: {
+                toggleState.toggle()
+            }) {
+                Text("Re-render View Cha (Trạng thái: \(toggleState ? "ON" : "OFF"))")
+                    .padding()
+                    .background(Color.purple.opacity(0.2))
+                    .cornerRadius(8)
             }
-            .padding()
-            .navigationTitle("Luồng Dữ Liệu MVVM")
         }
+        .padding()
+        .navigationTitle("Luồng Dữ Liệu MVVM")
     }
 }
 

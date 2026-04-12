@@ -10,32 +10,33 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         NavigationView {
-            VStack {
-                List {
-                    Section(header: Text("Essentials")) {
-                        EssentialListView()
-                    }
-                    Section(header: Text("Advanced")) {
-                        AppStructureListView()
-                    }
-                    Section(header: Text("View layout")) {
-                        ViewlayoutView()
-                    }
-                    Section(header: Text("Event handling")) {
-                        EventHandlingView()
-                    }
-                    Section(header: Text("Observation")) {
-                        ObservationView()
-                    }
-                    Section(header: Text("Combine")) {
-                        CombineView()
-                    }
-                    Section(header: Text("Framework integration")) {
-                        FrameworkIntegrationView()
-                    }
-                    Section(header: Text("Examples")) {
-                        ExamplesView()
-                    }
+            List {
+                Section(header: Text("Basic Views")) {
+                    BasicView()
+                }
+                Section(header: Text("Essentials")) {
+                    EssentialListView()
+                }
+                Section(header: Text("Advanced")) {
+                    AppStructureListView()
+                }
+                Section(header: Text("View layout")) {
+                    ViewlayoutView()
+                }
+                Section(header: Text("Event handling")) {
+                    EventHandlingView()
+                }
+                Section(header: Text("Observation")) {
+                    ObservationView()
+                }
+                Section(header: Text("Combine")) {
+                    CombineView()
+                }
+                Section(header: Text("Framework integration")) {
+                    FrameworkIntegrationView()
+                }
+                Section(header: Text("Examples")) {
+                    ExamplesView()
                 }
             }
             .navigationBarTitle("SwiftUI Sample Code")
