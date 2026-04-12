@@ -1062,3 +1062,21 @@ struct AccessibleImageDemo: View {
 // 9. .monospacedDigit() KHÔNG liên quan Image (chỉ Text)
 // 10. Test ảnh lớn trên device thật — Simulator không thể hiện memory issues
 ```
+
+---
+
+Image là view đa dạng hơn nhiều so với vẻ ngoài — từ SF Symbols, AsyncImage, đến rendering modes và các kỹ thuật xử lý ảnh nâng cao. Mình sẽ giải thích toàn bộ.Mình đã tổng hợp toàn bộ kiến thức Image trong 12 phần. Đây là những điểm cốt lõi:
+
+**Quy tắc vàng** mà gần như mọi iOS developer mới đều mắc: **`.resizable()` phải đặt TRƯỚC mọi sizing modifier**. Không có nó thì `.frame()`, `.scaledToFit()`, `.scaledToFill()` đều bị bỏ qua — image hiện đúng kích thước gốc. Đây là thiết kế có chủ đích của Apple: Image mặc định giữ pixel-perfect.
+
+**Bốn phần giá trị nhất:**
+
+**Phần 2 — SF Symbols**: Hệ thống rất sâu — không chỉ là icon tĩnh mà có 4 rendering modes (monochrome, hierarchical, palette, multicolor), **variable value** cho icons như wifi/speaker hiện mức độ 0→1, và **symbol effects** (iOS 17+) cho animations live như pulse, bounce, variableColor. Dùng `.fontWeight()` thay đổi độ dày nét giống như text.
+
+**Phần 3 — Sizing**: Thứ tự modifier là critical: `.resizable()` → `.aspectRatio()` → `.frame()` → `.clipped()` → `.clipShape()`. Khác biệt then chốt giữa `.fit` (hiện toàn bộ, có thể có khoảng trống) và `.fill` (phủ kín, có thể bị cắt — **bắt buộc thêm `.clipped()`**).
+
+**Phần 6 — AsyncImage**: Cú pháp phase-based handling cho loading/success/failure rất clean. Tuy nhiên gotcha lớn nhất: **không có cache built-in** — mỗi lần view appear đều load lại. Production phải dùng Kingfisher/SDWebImage/Nuke.
+
+**Phần 10 — Avatar Component**: Pattern hoàn chỉnh với URL image → AsyncImage + initials fallback khi không có ảnh + online indicator badge. Scale mọi thứ theo `size` parameter — một component dùng khắp app.
+
+Huy muốn mình đi tiếp sang chủ đề nào khác không?
