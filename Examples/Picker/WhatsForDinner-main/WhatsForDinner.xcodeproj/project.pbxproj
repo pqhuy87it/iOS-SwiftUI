@@ -1,0 +1,648 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3D2A854625B40AE200FF6920 /* WhatsForDinnerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A854525B40AE200FF6920 /* WhatsForDinnerApp.swift */; };
+		3D2A854825B40AE200FF6920 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A854725B40AE200FF6920 /* ContentView.swift */; };
+		3D2A854A25B40AE400FF6920 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2A854925B40AE400FF6920 /* Assets.xcassets */; };
+		3D2A854D25B40AE400FF6920 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3D2A854C25B40AE400FF6920 /* Preview Assets.xcassets */; };
+		3D2A854F25B40AE400FF6920 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A854E25B40AE400FF6920 /* Persistence.swift */; };
+		3D2A855225B40AE400FF6920 /* WhatsForDinner.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A855025B40AE400FF6920 /* WhatsForDinner.xcdatamodeld */; };
+		3D2A855D25B40AE400FF6920 /* WhatsForDinnerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A855C25B40AE400FF6920 /* WhatsForDinnerTests.swift */; };
+		3D2A856825B40AE400FF6920 /* WhatsForDinnerUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A856725B40AE400FF6920 /* WhatsForDinnerUITests.swift */; };
+		3D2A857C25B40BAF00FF6920 /* Restaurant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A857B25B40BAF00FF6920 /* Restaurant.swift */; };
+		3D2A858425B40D3100FF6920 /* RestaurantPicker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A858325B40D3100FF6920 /* RestaurantPicker.swift */; };
+		3D2A858A25B4117D00FF6920 /* Buttons.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A858925B4117D00FF6920 /* Buttons.swift */; };
+		3D2A859525B5460B00FF6920 /* SettingsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A859425B5460B00FF6920 /* SettingsPage.swift */; };
+		3D2A859A25B547B000FF6920 /* AppModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A859925B547B000FF6920 /* AppModel.swift */; };
+		3D2A85A225B54DFE00FF6920 /* EditPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D2A85A125B54DFE00FF6920 /* EditPage.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3D2A855925B40AE400FF6920 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D2A853A25B40AE200FF6920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D2A854125B40AE200FF6920;
+			remoteInfo = WhatsForDinner;
+		};
+		3D2A856425B40AE400FF6920 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3D2A853A25B40AE200FF6920 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3D2A854125B40AE200FF6920;
+			remoteInfo = WhatsForDinner;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3D2A854225B40AE200FF6920 /* WhatsForDinner.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WhatsForDinner.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D2A854525B40AE200FF6920 /* WhatsForDinnerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsForDinnerApp.swift; sourceTree = "<group>"; };
+		3D2A854725B40AE200FF6920 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		3D2A854925B40AE400FF6920 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3D2A854C25B40AE400FF6920 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		3D2A854E25B40AE400FF6920 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		3D2A855125B40AE400FF6920 /* WhatsForDinner.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WhatsForDinner.xcdatamodel; sourceTree = "<group>"; };
+		3D2A855325B40AE400FF6920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D2A855825B40AE400FF6920 /* WhatsForDinnerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsForDinnerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D2A855C25B40AE400FF6920 /* WhatsForDinnerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsForDinnerTests.swift; sourceTree = "<group>"; };
+		3D2A855E25B40AE400FF6920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D2A856325B40AE400FF6920 /* WhatsForDinnerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WhatsForDinnerUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3D2A856725B40AE400FF6920 /* WhatsForDinnerUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WhatsForDinnerUITests.swift; sourceTree = "<group>"; };
+		3D2A856925B40AE400FF6920 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3D2A857B25B40BAF00FF6920 /* Restaurant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Restaurant.swift; sourceTree = "<group>"; };
+		3D2A858325B40D3100FF6920 /* RestaurantPicker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantPicker.swift; sourceTree = "<group>"; };
+		3D2A858925B4117D00FF6920 /* Buttons.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buttons.swift; sourceTree = "<group>"; };
+		3D2A859425B5460B00FF6920 /* SettingsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SettingsPage.swift; path = WhatsForDinner/Views/SettingsPage.swift; sourceTree = SOURCE_ROOT; };
+		3D2A859925B547B000FF6920 /* AppModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppModel.swift; sourceTree = "<group>"; };
+		3D2A85A125B54DFE00FF6920 /* EditPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPage.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3D2A853F25B40AE200FF6920 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2A855525B40AE400FF6920 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2A856025B40AE400FF6920 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3D2A853925B40AE200FF6920 = {
+			isa = PBXGroup;
+			children = (
+				3D2A854425B40AE200FF6920 /* WhatsForDinner */,
+				3D2A855B25B40AE400FF6920 /* WhatsForDinnerTests */,
+				3D2A856625B40AE400FF6920 /* WhatsForDinnerUITests */,
+				3D2A854325B40AE200FF6920 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3D2A854325B40AE200FF6920 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A854225B40AE200FF6920 /* WhatsForDinner.app */,
+				3D2A855825B40AE400FF6920 /* WhatsForDinnerTests.xctest */,
+				3D2A856325B40AE400FF6920 /* WhatsForDinnerUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3D2A854425B40AE200FF6920 /* WhatsForDinner */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A857A25B40B9F00FF6920 /* Views */,
+				3D2A857825B40B7500FF6920 /* Models */,
+				3D2A854525B40AE200FF6920 /* WhatsForDinnerApp.swift */,
+				3D2A854725B40AE200FF6920 /* ContentView.swift */,
+				3D2A854925B40AE400FF6920 /* Assets.xcassets */,
+				3D2A854E25B40AE400FF6920 /* Persistence.swift */,
+				3D2A855325B40AE400FF6920 /* Info.plist */,
+				3D2A855025B40AE400FF6920 /* WhatsForDinner.xcdatamodeld */,
+				3D2A854B25B40AE400FF6920 /* Preview Content */,
+			);
+			path = WhatsForDinner;
+			sourceTree = "<group>";
+		};
+		3D2A854B25B40AE400FF6920 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A854C25B40AE400FF6920 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		3D2A855B25B40AE400FF6920 /* WhatsForDinnerTests */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A855C25B40AE400FF6920 /* WhatsForDinnerTests.swift */,
+				3D2A855E25B40AE400FF6920 /* Info.plist */,
+			);
+			path = WhatsForDinnerTests;
+			sourceTree = "<group>";
+		};
+		3D2A856625B40AE400FF6920 /* WhatsForDinnerUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A856725B40AE400FF6920 /* WhatsForDinnerUITests.swift */,
+				3D2A856925B40AE400FF6920 /* Info.plist */,
+			);
+			path = WhatsForDinnerUITests;
+			sourceTree = "<group>";
+		};
+		3D2A857825B40B7500FF6920 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A857B25B40BAF00FF6920 /* Restaurant.swift */,
+				3D2A859925B547B000FF6920 /* AppModel.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3D2A857A25B40B9F00FF6920 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A858825B4113100FF6920 /* Widgets */,
+				3D2A858325B40D3100FF6920 /* RestaurantPicker.swift */,
+				3D2A859425B5460B00FF6920 /* SettingsPage.swift */,
+				3D2A85A125B54DFE00FF6920 /* EditPage.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		3D2A858825B4113100FF6920 /* Widgets */ = {
+			isa = PBXGroup;
+			children = (
+				3D2A858925B4117D00FF6920 /* Buttons.swift */,
+			);
+			path = Widgets;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3D2A854125B40AE200FF6920 /* WhatsForDinner */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D2A856C25B40AE400FF6920 /* Build configuration list for PBXNativeTarget "WhatsForDinner" */;
+			buildPhases = (
+				3D2A853E25B40AE200FF6920 /* Sources */,
+				3D2A853F25B40AE200FF6920 /* Frameworks */,
+				3D2A854025B40AE200FF6920 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = WhatsForDinner;
+			productName = WhatsForDinner;
+			productReference = 3D2A854225B40AE200FF6920 /* WhatsForDinner.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3D2A855725B40AE400FF6920 /* WhatsForDinnerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D2A856F25B40AE400FF6920 /* Build configuration list for PBXNativeTarget "WhatsForDinnerTests" */;
+			buildPhases = (
+				3D2A855425B40AE400FF6920 /* Sources */,
+				3D2A855525B40AE400FF6920 /* Frameworks */,
+				3D2A855625B40AE400FF6920 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D2A855A25B40AE400FF6920 /* PBXTargetDependency */,
+			);
+			name = WhatsForDinnerTests;
+			productName = WhatsForDinnerTests;
+			productReference = 3D2A855825B40AE400FF6920 /* WhatsForDinnerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3D2A856225B40AE400FF6920 /* WhatsForDinnerUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3D2A857225B40AE400FF6920 /* Build configuration list for PBXNativeTarget "WhatsForDinnerUITests" */;
+			buildPhases = (
+				3D2A855F25B40AE400FF6920 /* Sources */,
+				3D2A856025B40AE400FF6920 /* Frameworks */,
+				3D2A856125B40AE400FF6920 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3D2A856525B40AE400FF6920 /* PBXTargetDependency */,
+			);
+			name = WhatsForDinnerUITests;
+			productName = WhatsForDinnerUITests;
+			productReference = 3D2A856325B40AE400FF6920 /* WhatsForDinnerUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3D2A853A25B40AE200FF6920 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1230;
+				LastUpgradeCheck = 1230;
+				TargetAttributes = {
+					3D2A854125B40AE200FF6920 = {
+						CreatedOnToolsVersion = 12.3;
+					};
+					3D2A855725B40AE400FF6920 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 3D2A854125B40AE200FF6920;
+					};
+					3D2A856225B40AE400FF6920 = {
+						CreatedOnToolsVersion = 12.3;
+						TestTargetID = 3D2A854125B40AE200FF6920;
+					};
+				};
+			};
+			buildConfigurationList = 3D2A853D25B40AE200FF6920 /* Build configuration list for PBXProject "WhatsForDinner" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3D2A853925B40AE200FF6920;
+			productRefGroup = 3D2A854325B40AE200FF6920 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3D2A854125B40AE200FF6920 /* WhatsForDinner */,
+				3D2A855725B40AE400FF6920 /* WhatsForDinnerTests */,
+				3D2A856225B40AE400FF6920 /* WhatsForDinnerUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3D2A854025B40AE200FF6920 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2A854D25B40AE400FF6920 /* Preview Assets.xcassets in Resources */,
+				3D2A854A25B40AE400FF6920 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2A855625B40AE400FF6920 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2A856125B40AE400FF6920 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3D2A853E25B40AE200FF6920 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2A857C25B40BAF00FF6920 /* Restaurant.swift in Sources */,
+				3D2A854F25B40AE400FF6920 /* Persistence.swift in Sources */,
+				3D2A855225B40AE400FF6920 /* WhatsForDinner.xcdatamodeld in Sources */,
+				3D2A859525B5460B00FF6920 /* SettingsPage.swift in Sources */,
+				3D2A859A25B547B000FF6920 /* AppModel.swift in Sources */,
+				3D2A854825B40AE200FF6920 /* ContentView.swift in Sources */,
+				3D2A858A25B4117D00FF6920 /* Buttons.swift in Sources */,
+				3D2A858425B40D3100FF6920 /* RestaurantPicker.swift in Sources */,
+				3D2A85A225B54DFE00FF6920 /* EditPage.swift in Sources */,
+				3D2A854625B40AE200FF6920 /* WhatsForDinnerApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2A855425B40AE400FF6920 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2A855D25B40AE400FF6920 /* WhatsForDinnerTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3D2A855F25B40AE400FF6920 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D2A856825B40AE400FF6920 /* WhatsForDinnerUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3D2A855A25B40AE400FF6920 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D2A854125B40AE200FF6920 /* WhatsForDinner */;
+			targetProxy = 3D2A855925B40AE400FF6920 /* PBXContainerItemProxy */;
+		};
+		3D2A856525B40AE400FF6920 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3D2A854125B40AE200FF6920 /* WhatsForDinner */;
+			targetProxy = 3D2A856425B40AE400FF6920 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		3D2A856A25B40AE400FF6920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		3D2A856B25B40AE400FF6920 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3D2A856D25B40AE400FF6920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"WhatsForDinner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WhatsForDinner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattburkedev.WhatsForDinner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3D2A856E25B40AE400FF6920 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"WhatsForDinner/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = WhatsForDinner/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattburkedev.WhatsForDinner;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		3D2A857025B40AE400FF6920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsForDinnerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattburkedev.WhatsForDinnerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsForDinner.app/WhatsForDinner";
+			};
+			name = Debug;
+		};
+		3D2A857125B40AE400FF6920 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsForDinnerTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattburkedev.WhatsForDinnerTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WhatsForDinner.app/WhatsForDinner";
+			};
+			name = Release;
+		};
+		3D2A857325B40AE400FF6920 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsForDinnerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattburkedev.WhatsForDinnerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WhatsForDinner;
+			};
+			name = Debug;
+		};
+		3D2A857425B40AE400FF6920 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = WhatsForDinnerUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.mattburkedev.WhatsForDinnerUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = WhatsForDinner;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3D2A853D25B40AE200FF6920 /* Build configuration list for PBXProject "WhatsForDinner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D2A856A25B40AE400FF6920 /* Debug */,
+				3D2A856B25B40AE400FF6920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D2A856C25B40AE400FF6920 /* Build configuration list for PBXNativeTarget "WhatsForDinner" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D2A856D25B40AE400FF6920 /* Debug */,
+				3D2A856E25B40AE400FF6920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D2A856F25B40AE400FF6920 /* Build configuration list for PBXNativeTarget "WhatsForDinnerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D2A857025B40AE400FF6920 /* Debug */,
+				3D2A857125B40AE400FF6920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3D2A857225B40AE400FF6920 /* Build configuration list for PBXNativeTarget "WhatsForDinnerUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3D2A857325B40AE400FF6920 /* Debug */,
+				3D2A857425B40AE400FF6920 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		3D2A855025B40AE400FF6920 /* WhatsForDinner.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				3D2A855125B40AE400FF6920 /* WhatsForDinner.xcdatamodel */,
+			);
+			currentVersion = 3D2A855125B40AE400FF6920 /* WhatsForDinner.xcdatamodel */;
+			path = WhatsForDinner.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 3D2A853A25B40AE200FF6920 /* Project object */;
+}

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="17709" systemVersion="20C69" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Item" representedClassName="Item" syncable="YES" codeGenerationType="class"/>
+    <entity name="Restaurant" representedClassName=".Restaurant" syncable="YES">
+        <attribute name="id" attributeType="UUID" usesScalarValueType="NO"/>
+        <attribute name="name" attributeType="String"/>
+    </entity>
+    <elements>
+        <element name="Item" positionX="147.7801513671875" positionY="-89.5531005859375" width="128" height="43"/>
+        <element name="Restaurant" positionX="-63" positionY="-9" width="128" height="73"/>
+    </elements>
+</model>
