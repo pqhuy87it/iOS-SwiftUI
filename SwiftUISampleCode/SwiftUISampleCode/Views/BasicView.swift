@@ -40,6 +40,10 @@ struct BasicView: View {
         NavigationLink(destination: ListExampleView()) {
             MenuRow(detailViewName: "List")
         }
+        
+        NavigationLink(destination: ScrollViewExampleView()) {
+            MenuRow(detailViewName: "Scroll View")
+        }
     }
 }
 
