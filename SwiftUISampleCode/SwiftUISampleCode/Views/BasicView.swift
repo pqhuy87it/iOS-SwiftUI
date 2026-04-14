@@ -36,6 +36,10 @@ struct BasicView: View {
         NavigationLink(destination: TextFieldExampleView()) {
             MenuRow(detailViewName: "TextField")
         }
+        
+        NavigationLink(destination: ListExampleView()) {
+            MenuRow(detailViewName: "List")
+        }
     }
 }
 
