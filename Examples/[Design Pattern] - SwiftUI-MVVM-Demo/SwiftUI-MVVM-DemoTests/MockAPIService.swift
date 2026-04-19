@@ -2,36 +2,36 @@ import Foundation
 @testable import SwiftUI_MVVM_Demo
 
 final class MockAPIService: APIServiceType {
-    // Lưu trữ các stubs bằng String (tên kiểu Request) cho đơn giản
+    // Lưu trữ Result thay vì Closure để tránh lỗi ép kiểu Any của Swift
     var stubs: [String: Any] = [:]
     
-    // Hàm Helper để set mock response
+    // Setup bằng Result
     func stub<Request: APIRequestType>(for type: Request.Type, response: Result<Request.Response, Error>) {
-        stubs[String(describing: type)] = response
-    }
-    
-    // Hàm setup: Nhận vào một closure async throws
-    func stub<Request: APIRequestType>(
-        for type: Request.Type,
-        response: @escaping (Request) async throws -> Request.Response
-    ) {
         let key = String(describing: type)
         stubs[key] = response
     }
     
-    // Implement protocol APIServiceType bằng async throws
     func response<Request: APIRequestType>(from request: Request) async throws -> Request.Response {
         let key = String(describing: Request.self)
         
-        guard let result = stubs[key] as? Result<Request.Response, Error> else {
-            fatalError("Chưa setup stub cho \(key)")
+        // ⏳ BẮT BUỘC: Thêm delay cực nhỏ (10ms) để nhường luồng (Yield thread).
+        // Giúp XCTest có thời gian đăng ký Expectation, ngăn chặn Race Condition.
+        try await Task.sleep(nanoseconds: 10_000_000)
+        
+        // Trả về dữ liệu nếu đã được setup
+        if let result = stubs[key] as? Result<Request.Response, Error> {
+            switch result {
+            case .success(let res): return res
+            case .failure(let err): throw err
+            }
         }
         
-        switch result {
-        case .success(let response):
-            return response
-        case .failure(let error):
-            throw error
+        // 🛡 FALLBACK AN TOÀN: Nếu quên setup stub (hoặc đối với các test không quan tâm API như test Tracker),
+        // nó sẽ tự động trả về một mảng rỗng thay vì văng fatalError làm crash Test Suite.
+        if let defaultMock = SearchRepositoryResponse(items: []) as? Request.Response {
+            return defaultMock
         }
+        
+        fatalError("🚨 Chưa setup stub cho \(key)")
     }
 }

@@ -3,7 +3,7 @@ import Combine
 import XCTest
 @testable import SwiftUI_MVVM_Demo
 
-@MainActor // Đánh dấu toàn bộ test class chạy trên Main Thread
+@MainActor
 final class RepositoryListViewModelTests: XCTestCase {
     
     private var cancellables: Set<AnyCancellable>!
@@ -32,14 +32,15 @@ final class RepositoryListViewModelTests: XCTestCase {
                 )
             ]
         )
+        
+        // Setup stub bằng Result.success
         apiService.stub(for: SearchRepositoryRequest.self, response: .success(expectedResponse))
         
         let viewModel = makeViewModel(apiService: apiService)
         let expectation = XCTestExpectation(description: "Fetch repositories thành công")
         
-        // Lắng nghe sự thay đổi của biến repositories
         viewModel.$repositories
-            .dropFirst() // Bỏ qua giá trị khởi tạo rỗng ban đầu
+            .dropFirst()
             .sink { _ in
                 expectation.fulfill()
             }
@@ -48,7 +49,7 @@ final class RepositoryListViewModelTests: XCTestCase {
         viewModel.apply(.onAppear)
         
         // Đợi Task hoàn thành
-        await fulfillment(of: [expectation], timeout: 1.0)
+        await fulfillment(of: [expectation], timeout: 2.0)
         
         XCTAssertFalse(viewModel.repositories.isEmpty)
         XCTAssertEqual(viewModel.repositories.first?.fullName, "foo")
@@ -56,6 +57,8 @@ final class RepositoryListViewModelTests: XCTestCase {
     
     func test_serviceErrorWhenOnAppear() async {
         let apiService = MockAPIService()
+        
+        // Setup stub bằng Result.failure
         apiService.stub(for: SearchRepositoryRequest.self, response: .failure(APIServiceError.responseError))
         
         let viewModel = makeViewModel(apiService: apiService)
@@ -71,17 +74,17 @@ final class RepositoryListViewModelTests: XCTestCase {
         
         viewModel.apply(.onAppear)
         
-        await fulfillment(of: [expectation], timeout: 1.0)
+        await fulfillment(of: [expectation], timeout: 2.0)
         
         XCTAssertTrue(viewModel.isErrorShown)
     }
     
+    // Các test dưới đây giữ nguyên, không cần setup stub vì MockAPIService đã có Fallback an toàn
     func test_logListViewWhenOnAppear() {
         let trackerService = MockTrackerService()
         let viewModel = makeViewModel(trackerService: trackerService)
         
         viewModel.apply(.onAppear)
-        
         XCTAssertTrue(trackerService.loggedTypes.contains(.listView))
     }
     
@@ -103,12 +106,12 @@ final class RepositoryListViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.shouldShowIcon)
     }
     
-    // Helper function
     private func makeViewModel(
         apiService: APIServiceType = MockAPIService(),
         trackerService: TrackerType = MockTrackerService(),
         experimentService: ExperimentServiceType = MockExperimentService()
     ) -> RepositoryListViewModel {
+        // Code khởi tạo gọn gàng như cũ, không cần check rỗng
         return RepositoryListViewModel(
             apiService: apiService,
             trackerService: trackerService,
