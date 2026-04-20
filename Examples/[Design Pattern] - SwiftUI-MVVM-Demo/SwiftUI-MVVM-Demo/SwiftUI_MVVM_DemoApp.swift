@@ -4,7 +4,7 @@ import SwiftUI
 struct SwiftUI_MVVM_DemoApp: App {
     var body: some Scene {
         WindowGroup {
-            RepositoryListView(viewModel: .init(),)
+            RepositoryListView()
         }
     }
 }

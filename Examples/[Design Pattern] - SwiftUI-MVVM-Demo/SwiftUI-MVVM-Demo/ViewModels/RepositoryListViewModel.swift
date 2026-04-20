@@ -20,12 +20,12 @@ final class RepositoryListViewModel: ObservableObject, UnidirectionalDataFlowTyp
     private let trackerService: TrackerType
     private let experimentService: ExperimentServiceType
     
-    init(apiService: APIServiceType = APIService(),
-         trackerService: TrackerType = TrackerService(),
-         experimentService: ExperimentServiceType = ExperimentService()) {
-        self.apiService = apiService
-        self.trackerService = trackerService
-        self.experimentService = experimentService
+    init(apiService: APIServiceType? = nil,
+         trackerService: TrackerType? = nil,
+         experimentService: ExperimentServiceType? = nil) {
+        self.apiService = apiService ?? APIService()
+        self.trackerService = trackerService ?? TrackerService()
+        self.experimentService = experimentService ?? ExperimentService()
     }
     
     func apply(_ input: Input) {

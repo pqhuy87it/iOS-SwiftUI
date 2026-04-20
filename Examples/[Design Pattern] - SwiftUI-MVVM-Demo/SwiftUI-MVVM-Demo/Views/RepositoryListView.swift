@@ -2,7 +2,7 @@ import SwiftUI
 
 struct RepositoryListView : View {
     // Sử dụng @StateObject để View này nắm quyền sở hữu (owner) ViewModel
-    @StateObject var viewModel: RepositoryListViewModel
+    @StateObject var viewModel: RepositoryListViewModel = RepositoryListViewModel()
     
     var body: some View {
         NavigationView {
