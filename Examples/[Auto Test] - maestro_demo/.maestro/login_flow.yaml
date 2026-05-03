@@ -1,0 +1,22 @@
+appId: com.example.maestroDemo # Thay đổi appId này thành appId thật của dự án Flutter của bạn
+---
+- launchApp:
+    clearState: true # Xóa dữ liệu app trước khi chạy để đảm bảo luồng bắt đầu từ đầu
+
+- tapOn: "Email"
+- inputText: "developer@example.com"
+
+- tapOn: "Mật khẩu"
+- inputText: "supersecret123"
+
+- pressKey: Enter
+
+- tapOn: "Login"
+
+# Đợi quá trình "gọi API" (được mô phỏng bằng Future.delayed 2 giây trong code)
+- extendedWaitUntil:
+    visible: "Chào mừng bạn!"
+    timeout: 5000 # Đợi tối đa 5 giây
+
+# Kiểm tra (Assertion) xem phần tử có xuất hiện trên màn hình HomeScreen không
+- assertVisible: "Chào mừng bạn!"
